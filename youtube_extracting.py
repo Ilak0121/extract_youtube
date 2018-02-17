@@ -18,11 +18,15 @@ def first(s) :
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         ydl.download([string])
 
-def second() :
+def second(s) :
     ydl_opts = {}
-    string=input(" Input the link :")
+    if(s==''):
+        string=input("Input the link :")
+    else:
+        string=s
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         ydl.download([string])
+
 def third() :
     print("this function is still developing use another option")
     print("seo jung uk babo")
@@ -40,6 +44,20 @@ def fourth() :
         a.append(b)
     for i in a:
         first(i)
+
+def fifth() :
+    a=[]
+    b=""
+    print("input the lists and if you want to finish input 'ctrl+c'")
+    while(1):
+        try:
+            b=input("url : ")
+        except KeyboardInterrupt :
+            print("\n")
+            break
+        a.append(b)
+    for i in a:
+        second(i)
        
 
 def main():
@@ -49,7 +67,8 @@ def main():
     print("| 1.Download mp3 with link                   |")
     print("| 2.Download mp4 with link                   |")
     print("| 3.Download mp3 by name                     |")
-    print("| 4.Download with list                       |")
+    print("| 4.Download mp3 with list                   |")
+    print("| 5.Download mp4 with list                   |")
     print("----------------------------------------------")
     try:
         choice=input(" Input the number :")
@@ -58,11 +77,13 @@ def main():
     if choice == "1" :
         first('')
     elif choice == "2":
-        second()
+        second('')
     elif choice == '3':
         third()
     elif choice == '4':
         fourth()
+    elif choice == '5':
+        fifth()
     else :
         sys.exit(1)
    
