@@ -60,7 +60,7 @@ def fifth() :
         second(i)
        
 
-def main():
+def print_menu():
     print(" this program is for download youtube mp3 file")
     print("----------------------------------------------")
     print("| 0.To exist this Program                    |")
@@ -70,6 +70,9 @@ def main():
     print("| 4.Download mp3 with list                   |")
     print("| 5.Download mp4 with list                   |")
     print("----------------------------------------------")
+
+def main():
+    print_menu()
     try:
         choice=input(" Input the number :")
     except KeyboardInterrupt :
@@ -89,5 +92,3 @@ def main():
    
 while(1):
     main()
-
-
