@@ -75,8 +75,11 @@ def main():
     print_menu()
     try:
         choice=input(" Input the number :")
-    except KeyboardInterrupt :
+    except KeyboardInterrupt:
         sys.exit(1)
+    except EOFError:
+        sys.exit(1)
+
     if choice == "1" :
         first('')
     elif choice == "2":

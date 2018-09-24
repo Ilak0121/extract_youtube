@@ -1,5 +1,4 @@
-activate
-test.py
-link
+act
 tmp
-/act/
+/virtualenv/
+/music/
