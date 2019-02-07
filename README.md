@@ -1,5 +1,7 @@
-<h1> Extracting mp3, mp4 by using yotube link</h1>
+# Extracting mp3, mp4 by youtube links
 
-<h2>To execute this program, you need to install 'python3', and python library 'youtube-dl', and 'ffmpeg', which is a passepartout video/audio editing library.</h2>
-
-
+## How to use.
+1. sudo apt-get update && sudo apt-get install python3
+2. sudo pip3 install virtualenv
+2. sudo source install.sh
+4. ./start
