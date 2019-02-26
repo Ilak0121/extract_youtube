@@ -1,1 +1,2 @@
-source act; python extracting_youtube.py 
+echo "it can take a minute.... plz wait....";
+source act; python youtube_extract.py

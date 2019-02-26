@@ -4,19 +4,19 @@ import sys
 
 class extracter:
     def __init__(self):
-        list_up=[]
-        ydl_optsi_mp3={
-            'format':'bestaudio/best',
-            'postprocessors':[{
-                'key':'FFmpegExtractAudio',
-                'preferredcodec':'mp3',
-                'preferredquality':'192',
-                }],
-        }
-        ydl_opts_mp4={}
+        self.list_up=[]
+        self.ydl_opts_mp3={
+                'format':'bestaudio/best',
+                'postprocessors':[{
+                    'key':'FFmpegExtractAudio',
+                    'preferredcodec':'mp3',
+                    'preferredquality':'192',
+                    }],
+                }
+        self.ydl_opts_mp4={}
 
     def extract_single(self,link):
-        if(link == '')
+        if link == "":
             string=input("input the link :")
         else:
             string=link
@@ -32,10 +32,10 @@ class extracter:
                 print("\n")
                 break
             self.list_up.append(temp)
-        print("*** download will be start with below links***")
+        print("\n*** download will be start with below links***\n")
         for i in self.list_up:
             print(i)
-        print("*** starting ***")
+        print("\n*** starting ***\n")
 
         for i in self.list_up:
             self.extract_single(i)
