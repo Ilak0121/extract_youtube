@@ -17,7 +17,7 @@ class extracter:
 
     def extract_single(self,link):
         if link == "":
-            string=input("input the link :")
+            string=input("input the link > ")
         else:
             string=link
         with youtube_dl.YoutubeDL(self.ydl_opts_mp3) as ydl:
@@ -27,12 +27,12 @@ class extracter:
         print("input the links \n *** if you want to stop typing and start to download, push 'ctrl+c'")
         while(1):
             try:
-                temp=input("url :")
+                temp=input("url > ")
             except KeyboardInterrupt :
                 print("\n")
                 break
             self.list_up.append(temp)
-        print("\n*** download will be start with below links***\n")
+        print("\n*** download will be start with below links ***\n")
         for i in self.list_up:
             print(i)
         print("\n*** starting ***\n")

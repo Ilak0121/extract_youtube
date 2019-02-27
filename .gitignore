@@ -1,4 +1,6 @@
 act
 tmp
-/virtualenv/
-/music/
+virtualenv/
+music/
+__pycache__/
+

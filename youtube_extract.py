@@ -7,7 +7,7 @@ def main():
     ym_class.print_menu()
 
     try:
-        choice=input(" Input the number :")
+        choice=input(" Input the number > ")
     except KeyboardInterrupt:
         sys.exit(1)
     except EOFError:
