@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 import youtube_dl, sys
+import myLogger 
 
 class extracter:
     def __init__(self):
@@ -10,32 +11,35 @@ class extracter:
                     'preferredcodec':'mp3',
                     'preferredquality':'192',
                     }],
+                'logger':myLogger(),
+                'progress_hooks':[self.myhook],
                 }
         self.ydl_opts_mp4={}
+        self.options = {
+                "mp3": self.ydl_opts_mp3,
+                "mp4": self.ydl_opts_mp4
+        }
+
+    def myhook(self, d):
+        if d['status'] == 'finished':
+            print('Done downloading, now converting...')
 
     def getList(self):
         lists=[]
-        print("input the links \n *** if you want to stop typing and start to download, push 'ctrl+c'")
+        print("input the links \n *** if you want to stop typing and start to download, push 'ctrl+c ***'")
         while(1):
             try:
-                url=input("url > ")
+                url=input("url >> ")
             except KeyboardInterrupt as e:
                 print("\n")
                 break
             lists.append(url)
         return lists
 
-    def extract_one(self,link,opt):
-        if opt == 'mp3':
-            with youtube_dl.YoutubeDL(self.ydl_opts_mp3) as ydl:
-                ydl.download(link)
-        elif opt == 'mp4':
-            with youtube_dl.YoutubeDL(self.ydl_opts_mp4) as ydl:
-                ydl.download(link)
-
-    def extract_list(self,lists,opt):
+    def extract (self,link,opt):
         print("\n*** starting ***\n")
-        for link in lists: self.extract_one(link,opt) 
+        with youtube_dl.YoutubeDL(self.options[opt]) as ydl:
+            ydl.download(link)
 
     def Run(self):
         try:
@@ -44,15 +48,15 @@ class extracter:
             sys.exit(1)
 
         if choice == '1':
-            self.extract_one([input("input the link >> ")],'mp3')
+            self.extract([input("input the link >> ")],'mp3')
         elif choice == '2':
             lists = self.getList()
-            self.extract_list(lists,'mp3')
+            self.extract(lists,'mp3')
         elif choice == '3':
-            self.extract_one([input("input the link >> ")],'mp4')
+            self.extract([input("input the link >> ")],'mp4')
         elif choice == '4':
             lists = self.getList()
-            self.extract_list(lists,'mp4')
+            self.extract(lists,'mp4')
 
     def printMenu(self):
         print()
