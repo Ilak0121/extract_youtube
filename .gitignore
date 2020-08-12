@@ -1,6 +1,4 @@
 act
-tmp
 virtualenv/
-music/
 __pycache__/
 
