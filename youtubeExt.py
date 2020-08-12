@@ -27,7 +27,7 @@ class extracter:
     def getList(self):
         lists=[]
         print("input the links \n *** if you want to stop typing and start to download, push 'ctrl+c ***'")
-        while(1):
+        while True:
             try:
                 url=input("url >> ")
             except KeyboardInterrupt as e:
@@ -36,27 +36,31 @@ class extracter:
             lists.append(url)
         return lists
 
-    def extract (self,link,opt):
+    def extract(self, link, opt):
         print("\n*** starting ***\n")
         with youtube_dl.YoutubeDL(self.options[opt]) as ydl:
             ydl.download(link)
 
     def Run(self):
+        self.printMenu()
+
         try:
             choice=input("Input the number >> ")
         except (KeyboardInterrupt, EOFError) as e:
             sys.exit(1)
 
-        if choice == '1':
-            self.extract([input("input the link >> ")],'mp3')
-        elif choice == '2':
+        opts=['mp3','mp4']
+        lists=[]
+        
+        if int(choice)%2 == 0:
             lists = self.getList()
-            self.extract(lists,'mp3')
-        elif choice == '3':
-            self.extract([input("input the link >> ")],'mp4')
-        elif choice == '4':
-            lists = self.getList()
-            self.extract(lists,'mp4')
+        else:
+            lists = [input("input the link >> ")] 
+
+        if int(choice) < 3:
+            self.extract(lists, opts[0])
+        else:
+            self.extract(lists, opts[1])
 
     def printMenu(self):
         print()

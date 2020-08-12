@@ -2,7 +2,7 @@
 
 if [ ! -x "/usr/bin/python3" ] || [ ! -x "/usr/share/python3" ] || [ ! -x "/usr/bin/python3.6" ];then
     echo "[STATUS] Installing python3"
-    sudo apt update && sudo apt install python3
+    sudo apt update && sudo apt install python3 python3-pip python3-venv
     echo "[STATUS] Done!"
 fi
 if [ ! -x "/usr/bin/ffmpeg" ] || [ ! -x "/usr/share/ffmpeg" ];then

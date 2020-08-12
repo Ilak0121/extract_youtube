@@ -7,6 +7,5 @@ if __name__ == '__main__':
     install_check('youtube-dl')
     import youtubeExt as ye
     Ye = ye.extracter()
-    while(1):
-        Ye.printMenu()
+    while True:
         Ye.Run()
