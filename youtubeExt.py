@@ -49,6 +49,10 @@ class extracter:
         except (KeyboardInterrupt, EOFError) as e:
             sys.exit(1)
 
+        if not int(choice) > 0 and int(choice) < 5:
+            print("[Error] Wrong option")
+            return
+
         opts=['mp3','mp4']
         lists=[]
         
@@ -72,8 +76,3 @@ class extracter:
         print("| 4. Download mp4 with list                       |")
         print("---------------------------------------------------")
         print()
-
-
-
-
-
