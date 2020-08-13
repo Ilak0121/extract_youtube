@@ -17,5 +17,5 @@ if [ ! -f "./act" ];then
     echo "[STATUS] Done!"
 fi
 
-clear; echo "[STATUS] Starting Program... Please Wait...";
+echo "[STATUS] Starting Program... Please Wait...";
 source act; python3 main.py
