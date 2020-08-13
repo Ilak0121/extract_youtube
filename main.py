@@ -1,4 +1,3 @@
-import subprocess, sys
 import youtubeExt as ye
 
 if __name__ == '__main__':
