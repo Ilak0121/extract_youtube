@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 import youtube_dl, sys
-import myLogger 
+import myLogger as mL
 
 class extracter:
     def __init__(self):
@@ -11,7 +11,7 @@ class extracter:
                     'preferredcodec':'mp3',
                     'preferredquality':'192',
                     }],
-                'logger':myLogger(),
+                'logger':mL.Logger(),
                 'progress_hooks':[self.myhook],
                 }
         self.ydl_opts_mp4={}
@@ -22,7 +22,7 @@ class extracter:
 
     def myhook(self, d):
         if d['status'] == 'finished':
-            print('Done downloading, now converting...')
+            print('[STATUS] Done downloading, now converting...')
 
     def getList(self):
         lists=[]
@@ -46,12 +46,15 @@ class extracter:
 
         try:
             choice=input("Input the number >> ")
+            if not int(choice) > 0 and int(choice) < 5:
+                print("[Error] Wrong option")
+                return
         except (KeyboardInterrupt, EOFError) as e:
             sys.exit(1)
-
-        if not int(choice) > 0 and int(choice) < 5:
+        except Exception as e:
             print("[Error] Wrong option")
             return
+
 
         opts=['mp3','mp4']
         lists=[]
@@ -65,6 +68,8 @@ class extracter:
             self.extract(lists, opts[0])
         else:
             self.extract(lists, opts[1])
+
+        sys.exit(0)
 
     def printMenu(self):
         print()

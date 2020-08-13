@@ -1,8 +1,8 @@
-class MyLogger(object):
+class Logger(object):
     def debug(self, msg):
         pass
     def warning(self, msg):
         pass
     def error(self, msg):
-        pass
+        print(msg)
 
