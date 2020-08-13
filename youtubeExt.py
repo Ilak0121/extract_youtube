@@ -6,6 +6,7 @@ class extracter:
     def __init__(self):
         self.ydl_opts_mp3={
                 'format':'bestaudio/best',
+                'outtmpl': './music/%(title)s.%(ext)s',
                 'postprocessors':[{
                     'key':'FFmpegExtractAudio',
                     'preferredcodec':'mp3',
