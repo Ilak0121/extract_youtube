@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-import sys, subprocess
+import youtube_dl, sys
 import myLogger as mL
 
 class extracter:
@@ -20,11 +20,7 @@ class extracter:
                 "mp3": self.ydl_opts_mp3,
                 "mp4": self.ydl_opts_mp4
         }
-        self.install_check('youtube-dl')
-        import youtube_dl
 
-    def install_check(self, package):
-        subprocess.check_call([sys.executable,'-m','pip','install',package,'--upgrade'],stderr=subprocess.STDOUT,stdout=None)
 
     def myhook(self, d):
         if d['status'] == 'finished':
